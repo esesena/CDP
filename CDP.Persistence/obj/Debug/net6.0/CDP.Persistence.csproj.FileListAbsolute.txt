@@ -1,0 +1,17 @@
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\CDP.Persistence.csproj.AssemblyReference.cache
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\CDP.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\CDP.Persistence.AssemblyInfoInputs.cache
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\CDP.Persistence.AssemblyInfo.cs
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\CDP.Persistence.csproj.CoreCompileInputs.cache
+C:\db\CDP\CDP.Persistence\bin\Debug\net6.0\CDP.Persistence.deps.json
+C:\db\CDP\CDP.Persistence\bin\Debug\net6.0\CDP.Persistence.runtimeconfig.json
+C:\db\CDP\CDP.Persistence\bin\Debug\net6.0\CDP.Persistence.dll
+C:\db\CDP\CDP.Persistence\bin\Debug\net6.0\CDP.Persistence.pdb
+C:\db\CDP\CDP.Persistence\bin\Debug\net6.0\CDP.Domain.dll
+C:\db\CDP\CDP.Persistence\bin\Debug\net6.0\CDP.Domain.pdb
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\CDP.Persistence.csproj.CopyComplete
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\CDP.Persistence.dll
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\refint\CDP.Persistence.dll
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\CDP.Persistence.pdb
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\CDP.Persistence.genruntimeconfig.cache
+C:\db\CDP\CDP.Persistence\obj\Debug\net6.0\ref\CDP.Persistence.dll

@@ -1,0 +1,12 @@
+C:\db\CDP\CDP.Application\bin\Debug\net6.0\CDP.Application.deps.json
+C:\db\CDP\CDP.Application\bin\Debug\net6.0\CDP.Application.dll
+C:\db\CDP\CDP.Application\bin\Debug\net6.0\CDP.Application.pdb
+C:\db\CDP\CDP.Application\obj\Debug\net6.0\CDP.Application.csproj.AssemblyReference.cache
+C:\db\CDP\CDP.Application\obj\Debug\net6.0\CDP.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\db\CDP\CDP.Application\obj\Debug\net6.0\CDP.Application.AssemblyInfoInputs.cache
+C:\db\CDP\CDP.Application\obj\Debug\net6.0\CDP.Application.AssemblyInfo.cs
+C:\db\CDP\CDP.Application\obj\Debug\net6.0\CDP.Application.csproj.CoreCompileInputs.cache
+C:\db\CDP\CDP.Application\obj\Debug\net6.0\CDP.Application.dll
+C:\db\CDP\CDP.Application\obj\Debug\net6.0\refint\CDP.Application.dll
+C:\db\CDP\CDP.Application\obj\Debug\net6.0\CDP.Application.pdb
+C:\db\CDP\CDP.Application\obj\Debug\net6.0\ref\CDP.Application.dll

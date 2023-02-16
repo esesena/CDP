@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "gyIc4yGwyefT9TD5N2+GLmBnHO2QBT/9hrAuZ/qN3G4=",
+  "Source": "CDP.API",
+  "BasePath": "_content/CDP.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
