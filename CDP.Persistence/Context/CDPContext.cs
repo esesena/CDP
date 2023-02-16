@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CDP.Domain;
 
 namespace CDP.Persistence.Context
 {
@@ -15,5 +16,9 @@ namespace CDP.Persistence.Context
                                                         IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>,
                                                         IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
+        public CDPContext(DbContextOptions<CDPContext> options) : base(options) { }
+
+        public DbSet<Notice> Avisos { get; set; }
+
     }
 }

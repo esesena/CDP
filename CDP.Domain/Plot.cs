@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CDP.Domain
 {
-    [Table("Talhoes")]
-    public class Talhoes
+    public class Plot
     {
 
         [Key]
@@ -13,27 +12,27 @@ namespace CDP.Domain
         [Display(Name = "Nome")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "{0} deve ter entre {2} e {1} caracteres!")]
         [Required(ErrorMessage = "Nome é obrigatório!")]
-        public string Nome { get; set; }
+        public string Name { get; set; }
 
         [Display(Name = "Localização")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "{0} deve ter entre {2} e {1} caracteres!")]
         [Required(ErrorMessage = "Localização é obrigatório!")]
-        public string Localizacao { get; set; }
+        public string Location { get; set; }
 
         [Display(Name = "Área")]
         [Required(ErrorMessage = "Área é obrigatório!")]
-        public double Area { get; set; }
+        public double Size { get; set; }
 
         [Display(Name = "Tipo de Solo")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "{0} deve ter entre {2} e {1} caracteres!")]
         [Required(ErrorMessage = "Tipo de solo é obrigatório!")]
-        public string TipoSolo { get; set; }
+        public string SoilType { get; set; }
 
         [Display(Name = "Fazenda")]
         [Required(ErrorMessage = "Fazenda é obrigatório!")]
-        public int FazendaId { get; set; }
-        public virtual Fazenda Fazenda { get; set; }
+        public int FarmId { get; set; }
+        public virtual Farm Farm { get; set; }
 
-        public virtual ICollection<PlantioTalhoes> PlantioTalhoes { get; set; }
+        public virtual ICollection<PlantingPlot> PlantingSlots { get; set; }
     }
 }

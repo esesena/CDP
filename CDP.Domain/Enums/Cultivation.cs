@@ -1,6 +1,6 @@
 ﻿namespace CDP.Domain.Enums
 {
-    public enum Cultura
+    public enum Cultivation
     {
         Algodao,
         Braquiaria,

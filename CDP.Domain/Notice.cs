@@ -4,8 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CDP.Domain
 {
-    [Table("Aviso")]
-    public class Aviso
+    public class Notice
     {
         [Key]
         public int Id { get; set; }
@@ -25,6 +24,6 @@ namespace CDP.Domain
 
         [Display(Name = "Prioridade")]
         [Required(ErrorMessage = "{0} é obrigatório!")]
-        public Prioridades Prioridade { get; set; }
+        public Priorities Prioritie { get; set; }
     }
 }
