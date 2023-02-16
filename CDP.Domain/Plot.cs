@@ -31,8 +31,8 @@ namespace CDP.Domain
         [Display(Name = "Fazenda")]
         [Required(ErrorMessage = "Fazenda é obrigatório!")]
         public int FarmId { get; set; }
-        public virtual Farm Farm { get; set; }
+        public Farm Farm { get; set; }
 
-        public virtual ICollection<PlantingPlot> PlantingSlots { get; set; }
+        public IEnumerable<PlantingPlot> PlantingPlot { get; set; }
     }
 }

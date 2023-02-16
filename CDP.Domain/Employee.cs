@@ -21,7 +21,7 @@ namespace CDP.Domain
         public string Cpf { get; set; }
 
         [Display(Name = "Cargo")]
-        public virtual Function Function { get; set; }
+        public Function Function { get; set; }
 
         [Display(Name = "Carga Horária")]
         [Required(ErrorMessage = "{0} é obrigatório!")]

@@ -46,7 +46,7 @@ namespace CDP.Domain
         [Display(Name = "Tipo de Semente")]
         [Required(ErrorMessage = "{0} é obrigatório!")]
         public int SeedId { get; set; }
-        public virtual Seed Seed { get; set; }
+        public Seed Seed { get; set; }
 
         [Display(Name = "Quantidade de Sementes")]
         public decimal SeedAmount { get; set; }
@@ -54,7 +54,7 @@ namespace CDP.Domain
         [Display(Name = "Distribuição de Sementes")]
         [Required(ErrorMessage = "{0} é obrigatório!")]
         [Column(TypeName = "decimal(10,2)")]
-        public decimal SeetDistance { get; set; }
+        public decimal SeedDistance { get; set; }
 
         [Display(Name = "Tipo de Abubação")]
         [Required(ErrorMessage = "{0} é obrigatório!")]
@@ -63,7 +63,7 @@ namespace CDP.Domain
 
         [Display(Name = "Talhões")]
         //public int TalhoesId { get; set; }
-        public virtual ICollection<PlantingPlot> PlantingPlot { get; set; }
+        public IEnumerable<PlantingPlot> PlantingPlot { get; set; }
 
     }
 }

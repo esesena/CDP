@@ -20,7 +20,7 @@ namespace CDP.Domain
         public string Description { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime CreationDate { get; set; } = DateTime.Now;
+        public DateTime CreationDate { get; set; }
 
         [Display(Name = "Prioridade")]
         [Required(ErrorMessage = "{0} é obrigatório!")]
