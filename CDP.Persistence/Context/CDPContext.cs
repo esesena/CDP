@@ -2,14 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CDP.Domain;
-using System.Runtime.Intrinsics.Arm;
 
 namespace CDP.Persistence.Context
 {
@@ -44,6 +37,9 @@ namespace CDP.Persistence.Context
 
             modelBuilder.Entity<PlantingPlot>()
                             .HasKey(PP => new { PP.PlantingId, PP.PlotId });
+
+            modelBuilder.Entity<EmployeesFarms>()
+                            .HasKey(FC => new { FC.FarmId, FC.EmployeeId });
 
             modelBuilder.Entity<Farm>()
                 .HasMany(f => f.Plots)

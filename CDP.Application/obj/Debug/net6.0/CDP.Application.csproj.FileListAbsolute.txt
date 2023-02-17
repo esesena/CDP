@@ -10,3 +10,8 @@ C:\db\CDP\CDP.Application\obj\Debug\net6.0\CDP.Application.dll
 C:\db\CDP\CDP.Application\obj\Debug\net6.0\refint\CDP.Application.dll
 C:\db\CDP\CDP.Application\obj\Debug\net6.0\CDP.Application.pdb
 C:\db\CDP\CDP.Application\obj\Debug\net6.0\ref\CDP.Application.dll
+C:\db\CDP\CDP.Application\bin\Debug\net6.0\CDP.Domain.dll
+C:\db\CDP\CDP.Application\bin\Debug\net6.0\CDP.Persistence.dll
+C:\db\CDP\CDP.Application\bin\Debug\net6.0\CDP.Domain.pdb
+C:\db\CDP\CDP.Application\bin\Debug\net6.0\CDP.Persistence.pdb
+C:\db\CDP\CDP.Application\obj\Debug\net6.0\CDP.Application.csproj.CopyComplete

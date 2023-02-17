@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CDP.Persistence.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class FirtMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -77,60 +77,14 @@ namespace CDP.Persistence.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Employees",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Cpf = table.Column<string>(type: "varchar(11)", maxLength: 11, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Function = table.Column<int>(type: "int", nullable: false),
-                    Workload = table.Column<int>(type: "int", nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Address = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Cep = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    City = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    State = table.Column<string>(type: "varchar(2)", maxLength: 2, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Employees", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Farms",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Location = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Size = table.Column<double>(type: "double", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Farms", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "Notices",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                    Name = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Description = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: false)
+                    Description = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     CreationDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Prioritie = table.Column<int>(type: "int", nullable: false)
@@ -148,16 +102,16 @@ namespace CDP.Persistence.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Cultivation = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                    Description = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    GrowthHabit = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                    GrowthHabit = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Height = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     Flowering = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
-                    Resistence = table.Column<string>(type: "longtext", nullable: false)
+                    Resistence = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     MaturationGroup = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
-                    SeedConsumption = table.Column<string>(type: "longtext", nullable: false)
+                    SeedConsumption = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -288,17 +242,119 @@ namespace CDP.Persistence.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Farms",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Location = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ImageURL = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Size = table.Column<double>(type: "double", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Farms", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Farms_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Plantings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    PlantingDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Cultivation = table.Column<int>(type: "int", nullable: false),
+                    Harvest = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    RainAmount = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    TypePlanting = table.Column<int>(type: "int", nullable: false),
+                    WeatherPlanting = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    AirMoisture = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    SeedId = table.Column<int>(type: "int", nullable: false),
+                    SeedAmount = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    SeedDistance = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    Fertilizing = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Plantings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Plantings_Seeds_SeedId",
+                        column: x => x.SeedId,
+                        principalTable: "Seeds",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Employees",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Cpf = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Function = table.Column<int>(type: "int", nullable: false),
+                    Workload = table.Column<int>(type: "int", nullable: false),
+                    BirthDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Address = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Cep = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    City = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    State = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    FarmId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Employees", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Employees_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Employees_Farms_FarmId",
+                        column: x => x.FarmId,
+                        principalTable: "Farms",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Plots",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                    Name = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Location = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                    Location = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Size = table.Column<double>(type: "double", nullable: false),
-                    SoilType = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                    SoilType = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     FarmId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -315,33 +371,25 @@ namespace CDP.Persistence.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Plantings",
+                name: "EmployeesFarms",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    PlantingDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Cultivation = table.Column<int>(type: "int", nullable: false),
-                    Harvest = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    RainAmount = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    TypePlanting = table.Column<int>(type: "int", nullable: false),
-                    WeatherPlanting = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    AirMoisture = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    SeedId = table.Column<int>(type: "int", nullable: false),
-                    SeedAmount = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
-                    SeedDistance = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    Fertilizing = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                    FarmId = table.Column<int>(type: "int", nullable: false),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Plantings", x => x.Id);
+                    table.PrimaryKey("PK_EmployeesFarms", x => new { x.FarmId, x.EmployeeId });
                     table.ForeignKey(
-                        name: "FK_Plantings_Seeds_SeedId",
-                        column: x => x.SeedId,
-                        principalTable: "Seeds",
+                        name: "FK_EmployeesFarms_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "Employees",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_EmployeesFarms_Farms_FarmId",
+                        column: x => x.FarmId,
+                        principalTable: "Farms",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -410,6 +458,26 @@ namespace CDP.Persistence.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Employees_FarmId",
+                table: "Employees",
+                column: "FarmId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Employees_UserId",
+                table: "Employees",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EmployeesFarms_EmployeeId",
+                table: "EmployeesFarms",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Farms_UserId",
+                table: "Farms",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PlantingPlot_PlotId",
                 table: "PlantingPlot",
                 column: "PlotId");
@@ -443,7 +511,7 @@ namespace CDP.Persistence.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Employees");
+                name: "EmployeesFarms");
 
             migrationBuilder.DropTable(
                 name: "Notices");
@@ -455,7 +523,7 @@ namespace CDP.Persistence.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Employees");
 
             migrationBuilder.DropTable(
                 name: "Plantings");
@@ -468,6 +536,9 @@ namespace CDP.Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Farms");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

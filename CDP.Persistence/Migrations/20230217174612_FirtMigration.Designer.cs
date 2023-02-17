@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CDP.Persistence.Migrations
 {
     [DbContext(typeof(CDPContext))]
-    [Migration("20230216020223_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20230217174612_FirtMigration")]
+    partial class FirtMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,47 +28,60 @@ namespace CDP.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Cep")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("City")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Cpf")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("varchar(11)");
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("FarmId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Function")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("State")
-                        .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("varchar(2)");
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Workload")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FarmId");
+
+                    b.HasIndex("UserId");
+
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("CDP.Domain.EmployeesFarms", b =>
+                {
+                    b.Property<int>("FarmId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FarmId", "EmployeeId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("EmployeesFarms");
                 });
 
             modelBuilder.Entity("CDP.Domain.Farm", b =>
@@ -77,20 +90,24 @@ namespace CDP.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("ImageURL")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Location")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<double>("Size")
                         .HasColumnType("double");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Farms");
                 });
@@ -227,14 +244,10 @@ namespace CDP.Persistence.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("varchar(250)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("Prioritie")
                         .HasColumnType("int");
@@ -251,32 +264,28 @@ namespace CDP.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("AirMoisture")
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int>("Cultivation")
                         .HasColumnType("int");
 
                     b.Property<string>("Fertilizing")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Harvest")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("PlantingDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<decimal>("RainAmount")
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<decimal>("SeedAmount")
                         .HasColumnType("decimal(65,30)");
 
                     b.Property<decimal>("SeedDistance")
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int>("SeedId")
                         .HasColumnType("int");
@@ -285,9 +294,7 @@ namespace CDP.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("WeatherPlanting")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -321,22 +328,16 @@ namespace CDP.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Location")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<double>("Size")
                         .HasColumnType("double");
 
                     b.Property<string>("SoilType")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -355,17 +356,13 @@ namespace CDP.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<decimal>("Flowering")
                         .HasColumnType("decimal(65,30)");
 
                     b.Property<string>("GrowthHabit")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<decimal>("Height")
                         .HasColumnType("decimal(65,30)");
@@ -374,11 +371,9 @@ namespace CDP.Persistence.Migrations
                         .HasColumnType("decimal(65,30)");
 
                     b.Property<string>("Resistence")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("SeedConsumption")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -468,6 +463,55 @@ namespace CDP.Persistence.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("CDP.Domain.Employee", b =>
+                {
+                    b.HasOne("CDP.Domain.Farm", "Farm")
+                        .WithMany()
+                        .HasForeignKey("FarmId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CDP.Domain.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Farm");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CDP.Domain.EmployeesFarms", b =>
+                {
+                    b.HasOne("CDP.Domain.Employee", "Employee")
+                        .WithMany("EmployeesFarms")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CDP.Domain.Farm", "Farm")
+                        .WithMany("EmployeesFarms")
+                        .HasForeignKey("FarmId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Farm");
+                });
+
+            modelBuilder.Entity("CDP.Domain.Farm", b =>
+                {
+                    b.HasOne("CDP.Domain.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CDP.Domain.Identity.UserRole", b =>
@@ -566,8 +610,15 @@ namespace CDP.Persistence.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("CDP.Domain.Employee", b =>
+                {
+                    b.Navigation("EmployeesFarms");
+                });
+
             modelBuilder.Entity("CDP.Domain.Farm", b =>
                 {
+                    b.Navigation("EmployeesFarms");
+
                     b.Navigation("Plots");
                 });
 

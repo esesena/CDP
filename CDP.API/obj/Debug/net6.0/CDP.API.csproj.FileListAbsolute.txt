@@ -84,3 +84,6 @@ C:\db\CDP\CDP.API\bin\Debug\net6.0\CDP.Domain.dll
 C:\db\CDP\CDP.API\bin\Debug\net6.0\CDP.Persistence.dll
 C:\db\CDP\CDP.API\bin\Debug\net6.0\CDP.Persistence.pdb
 C:\db\CDP\CDP.API\bin\Debug\net6.0\CDP.Domain.pdb
+C:\db\CDP\CDP.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\db\CDP\CDP.API\bin\Debug\net6.0\CDP.Application.dll
+C:\db\CDP\CDP.API\bin\Debug\net6.0\CDP.Application.pdb
