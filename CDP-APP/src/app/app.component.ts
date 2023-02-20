@@ -1,10 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'argon-dashboard-angular';
+  public forecasts?: WeatherForecast[];
+
+  constructor(http: HttpClient) {
+    http.get<WeatherForecast[]>('/weatherforecast').subscribe(result => {
+      this.forecasts = result;
+    }, error => console.error(error));
+  }
+
+  title = 'CDP-App';
+}
+
+interface WeatherForecast {
+  date: string;
+  temperatureC: number;
+  temperatureF: number;
+  summary: string;
 }

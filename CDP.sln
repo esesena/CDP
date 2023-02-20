@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDP.API", "CDP.API\CDP.API.csproj", "{134F2F63-0894-4B8D-AD46-87EA6E9074FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDP.API", "CDP.API\CDP.API.csproj", "{134F2F63-0894-4B8D-AD46-87EA6E9074FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDP.Domain", "CDP.Domain\CDP.Domain.csproj", "{2BE081CD-3E46-49EE-A0A9-469F735A2308}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDP.Domain", "CDP.Domain\CDP.Domain.csproj", "{2BE081CD-3E46-49EE-A0A9-469F735A2308}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDP.Persistence", "CDP.Persistence\CDP.Persistence.csproj", "{8B5C5BBF-5E12-4397-9F1C-AB3A13A0CAF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDP.Persistence", "CDP.Persistence\CDP.Persistence.csproj", "{8B5C5BBF-5E12-4397-9F1C-AB3A13A0CAF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDP.Application", "CDP.Application\CDP.Application.csproj", "{7D5A9AE3-FA34-4B88-A5E5-E141C7BF855B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDP.Application", "CDP.Application\CDP.Application.csproj", "{7D5A9AE3-FA34-4B88-A5E5-E141C7BF855B}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "CDP-App", "CDP-App\CDP-App.esproj", "{9456C300-3FBE-4ED6-97EA-297F04B9D51E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,12 @@ Global
 		{7D5A9AE3-FA34-4B88-A5E5-E141C7BF855B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D5A9AE3-FA34-4B88-A5E5-E141C7BF855B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D5A9AE3-FA34-4B88-A5E5-E141C7BF855B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9456C300-3FBE-4ED6-97EA-297F04B9D51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9456C300-3FBE-4ED6-97EA-297F04B9D51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9456C300-3FBE-4ED6-97EA-297F04B9D51E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9456C300-3FBE-4ED6-97EA-297F04B9D51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9456C300-3FBE-4ED6-97EA-297F04B9D51E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9456C300-3FBE-4ED6-97EA-297F04B9D51E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
